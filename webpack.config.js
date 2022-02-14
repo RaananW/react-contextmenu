@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry: "./src/index.js",
     output: {
         filename: "dist/react-contextmenu.js",
@@ -16,14 +17,9 @@ module.exports = {
                 loader: "babel-loader",
                 options: {
                     presets: [
-                        'react',
-                        ['es2015', {
-                            modules: false
-                        }]
+                        "@babel/react", "@babel/env"
                     ],
-                    plugins: [
-                        'transform-class-properties'
-                    ]
+                    plugins: ["@babel/plugin-proposal-class-properties"]
                 },
                 include: [
                     path.resolve(__dirname, './src')
@@ -46,15 +42,10 @@ module.exports = {
         }
     }],
     plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                "NODE_ENV": JSON.stringify("production")
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false
-            }
-        })
+        // new webpack.DefinePlugin({
+        //     "process.env": {
+        //         "NODE_ENV": JSON.stringify("production")
+        //     }
+        // }),
     ]
 };
