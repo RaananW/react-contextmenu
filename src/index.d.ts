@@ -53,9 +53,9 @@ declare module "react-contextmenu" {
         trigger: any;
     }
 
-    export const ContextMenu: React.ComponentClass<ContextMenuProps>;
+    export const ContextMenu: React.ComponentClass<React.PropsWithChildren<ContextMenuProps>>;
     export const ContextMenuTrigger: React.ComponentClass<ContextMenuTriggerProps>;
-    export const MenuItem: React.ComponentClass<MenuItemProps>;
+    export const MenuItem: React.ComponentClass<React.PropsWithChildren<MenuItemProps>>;
     export const SubMenu: React.ComponentClass<SubMenuProps>;
     export function connectMenu<P>(
       menuId: string
